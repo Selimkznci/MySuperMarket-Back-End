@@ -9,6 +9,7 @@ namespace Core.Utilities.Security.Encyption
 {
     public class SecurityKeyHelper
     {
+        //Identity Model tokeni -nuget pakete yükledik  
         public static SecurityKey CreateSecurityKey(string securityKey)
         {
             return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
