@@ -11,7 +11,7 @@ namespace Core.Utilities.Helpers.FileHelper
     public class FileHelperManager : IFileHelper
     {
 
-        public void Delete(string filePath)//Buradaki string filePath, 'CarImageManager'dan gelen dosyamın kaydedildiği adres ve adı 
+        public void Delete(string filePath)//Buradaki string filePath, 'ProductImageManager'dan gelen dosyamın kaydedildiği adres ve adı 
         {
             if (File.Exists(filePath))//if kontrolü ile parametrede gelen adreste öyle bir dosya var mı diye kontrol ediliyor.
             {
