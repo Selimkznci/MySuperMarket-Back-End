@@ -36,5 +36,8 @@ namespace Business.Constans
         public static string UserAlreadyExists = "Bu Kullanıcı Zaten Mevcut";
         public static string UserRegistered = "Kullanıcı Başarıyla Kaydedildi";
         public static string AccessTokenCreated = "Access Token Başarıyla Oluşturuldu";
+        public static string ImageAdded="Resim Eklendi";
+        public static string ImageUpdated="Resim Güncellendi";
+        public static string ImageDeleted="Resim Silindi";
     }
 }
