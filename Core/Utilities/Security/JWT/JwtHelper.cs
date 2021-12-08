@@ -15,14 +15,14 @@ namespace Core.Utilities.Security.JWT
     public class JwtHelper : ITokenHelper
     {
 
-        public IConfiguration Configuration { get; }
-        private TokenOptions _tokenOptions;
-        private DateTime _accessTokenExpiration;
+        public IConfiguration Configuration { get; }    //API'deki appsetting.json'u okur
+        private TokenOptions _tokenOptions;             //Oluşturulan Token Nesnenesi yerleşti
+        private DateTime _accessTokenExpiration;        //Ne zaman Geçersizleşecek ?
 
-        public JwtHelper(IConfiguration configuration)
+        public JwtHelper(IConfiguration configuration)//Injector
         {
             Configuration = configuration;
-            _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();   //Appsetting i al ve TokenOptions'u maple diyoruz
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
         }
 
