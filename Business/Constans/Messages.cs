@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,5 +40,6 @@ namespace Business.Constans
         public static string ImageAdded="Resim Eklendi";
         public static string ImageUpdated="Resim Güncellendi";
         public static string ImageDeleted="Resim Silindi";
+        public static string AuthorizationDenied="Yetkiniz yok!";
     }
 }
