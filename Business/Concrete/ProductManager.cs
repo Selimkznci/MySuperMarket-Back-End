@@ -39,7 +39,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProductDeleted);
         }
 
-        [CacheAspect] //key.value   key = cache ye verdiğiz isimdir
+       //[CacheAspect] //key.value   key = cache ye verdiğiz isimdir
         public IDataResult<List<Product>> GetAll()
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductListed);
