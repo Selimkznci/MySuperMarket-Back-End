@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constans;
+using Core.Aspects.Caching;
+using Core.Aspects.Performance;
 using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
 using DataAccess.Abstract;
@@ -21,6 +23,8 @@ namespace Business.Concrete
             _saleDal = saleDal;
         }
 
+        [CacheAspect]
+        [PerformanceAspect(5)]
         public IDataResult<List<BasketDetailDTO>> GetDetailsAll()
         {
             return new SuccessDataResult<List<BasketDetailDTO>>(_saleDal.GetBasketDetailDTOs(),Messages.ProductListed);

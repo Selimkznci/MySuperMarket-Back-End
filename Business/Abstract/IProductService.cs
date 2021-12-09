@@ -13,11 +13,10 @@ namespace Business.Abstract
     {
         IDataResult<List<ProductDetailDTO>> GetProductDetail();
         IDataResult<List<Product>> GetAll();
-
         IDataResult<Product> GetById(int id);
-
         IResult Add(Product product);
         IResult Update(Product product);
         IResult Delete(Product product);
+        IResult AddTransactionalTest(Product product);
     }
 }

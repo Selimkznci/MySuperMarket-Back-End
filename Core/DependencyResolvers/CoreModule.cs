@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Core.DependencyResolvers
             serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();//MemoryCacheManager    
             //serviceCollection.AddSingleton<ICacheManager, RedisCacheManager>();   Redise geçersek 20.satır silinir redis gelir addmemoryCache silinir
+            serviceCollection.AddSingleton<Stopwatch>();
         }
     }
 }

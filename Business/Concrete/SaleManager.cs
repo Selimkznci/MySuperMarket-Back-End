@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Performance;
 using Core.Aspects.Validation;
 using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
@@ -34,7 +35,7 @@ namespace Business.Concrete
             _saleDal.Delete(sale);
             return new SuccessResult(Messages.SaleDeleted);
         }
-        
+        [PerformanceAspect(5)]
         public IDataResult<List<Sale>> GetAll()
         {
             return new SuccessDataResult<List<Sale>>(_saleDal.GetAll(),Messages.SaleListed);
