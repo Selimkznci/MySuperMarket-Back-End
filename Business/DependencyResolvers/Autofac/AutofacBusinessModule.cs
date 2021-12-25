@@ -24,8 +24,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<BasketManager>().As<IBasketService>().SingleInstance();
             builder.RegisterType<EfBasketDal>().As<ISaleDal>().SingleInstance();
 
-            //builder.RegisterType<ProductImageManager>().As<IProductImageService>().SingleInstance();
-            //builder.RegisterType<EfProductImageDal>().As<IProductImageDal>().SingleInstance();
+            builder.RegisterType<ProductImageManager>().As<IProductImageService>().SingleInstance();
+            builder.RegisterType<EfProductImageDal>().As<IProductImageDal>().SingleInstance();
 
             builder.RegisterType<ProductManager>().As<IProductService>().SingleInstance();
             builder.RegisterType<EfProductDal>().As<IProductDal>().SingleInstance();
