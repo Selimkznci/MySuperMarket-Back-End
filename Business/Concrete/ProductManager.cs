@@ -3,9 +3,11 @@ using Business.BusinessAspects.Autofac;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Caching;
+using Core.Aspects.Logging;
 using Core.Aspects.Performance;
 using Core.Aspects.Transaction;
 using Core.Aspects.Validation;
+using Core.Cross_Cutting_Concers.Logging.Log4Net.Loggers;
 using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
 using DataAccess.Abstract;
@@ -54,6 +56,15 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductListed);
         }
+
+        [SecuredOperation("Product.List,Admin")]
+        [LogAspect(typeof(FileLogger))]
+        [CacheAspect(duration: 10)]
+        public IDataResult<List<Product>> GetAllByCategoryId(int categoryId)
+        {
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryId == categoryId).ToList());
+        }
+
         [CacheAspect]
         public IDataResult<Product> GetById(int ProductId)
         {
