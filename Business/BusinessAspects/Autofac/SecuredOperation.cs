@@ -23,8 +23,6 @@ namespace Business.BusinessAspects.Autofac
         {
             _roles = roles.Split(',');  // dmeek metni benim belirittiğim karaktere göre arraye atıyor
             _httpContextAccessor = ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>(); 
-                                    
-
         }
 
         protected override void OnBefore(IInvocation invocation)

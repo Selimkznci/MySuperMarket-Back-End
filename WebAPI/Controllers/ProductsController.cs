@@ -82,6 +82,7 @@ namespace WebAPI.ControllersS
             }
             return BadRequest(result);
         }
+
         [HttpGet("getalldetail")]
         public IActionResult GetProductDetail()
         {

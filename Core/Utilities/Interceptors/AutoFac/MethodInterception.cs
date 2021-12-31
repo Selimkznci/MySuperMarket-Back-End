@@ -7,32 +7,25 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Interceptors.AutoFac
 {
-    public class MethodInterception : MethodInterceptionBaseAttribute
+    public abstract class MethodInterception : MethodInterceptionBaseAttribute
     {
         protected virtual void OnBefore(IInvocation invocation) { }
         protected virtual void OnAfter(IInvocation invocation) { }
-
-        protected virtual void OnException(IInvocation invocation, Exception e)
-        {
-            throw e;
-        }
+        protected virtual void OnException(IInvocation invocation, System.Exception e) { }
         protected virtual void OnSuccess(IInvocation invocation) { }
-
-
         public override void Intercept(IInvocation invocation)
         {
-            bool isSuccess = true;
-
+            var isSuccess = true;
+            OnBefore(invocation);
             try
             {
-                OnBefore(invocation);
                 invocation.Proceed();
-                OnAfter(invocation);
             }
             catch (Exception e)
             {
                 isSuccess = false;
                 OnException(invocation, e);
+                throw;
             }
             finally
             {
@@ -41,6 +34,7 @@ namespace Core.Utilities.Interceptors.AutoFac
                     OnSuccess(invocation);
                 }
             }
+            OnAfter(invocation);
         }
     }
 }
